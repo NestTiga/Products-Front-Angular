@@ -1,0 +1,11 @@
+.card-container {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center;    /* Centra los elementos horizontalmente */
+    margin-top: 50px;
+  }
+  
+
+  .button-container {
+    margin-top: 20px; /* Espacio entre la tarjeta y el botón */
+  }

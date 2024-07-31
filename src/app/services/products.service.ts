@@ -18,6 +18,10 @@ export class ProductsService {
     return this.http.get<ProductModel[]>(`${this.baseUrl}findAllDesired`);
   }
 
+  getProductById(id:number): Observable<ProductModel> {
+    return this.http.get<ProductModel>(`${this.baseUrl}findById/${id}`);
+  }
+
   deleteProduct(id:number, product:ProductModel): Observable<object> {
     return this.http.put(`${this.baseUrl}activeProduct/${id}`, product);
   }

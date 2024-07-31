@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-products',
@@ -13,6 +14,7 @@ export class AllProductsComponent implements OnInit {
   
   public productList: ProductModel[] = [];
   private productService= inject(ProductsService);
+  private router= inject(Router);
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -53,6 +55,10 @@ export class AllProductsComponent implements OnInit {
         console.error(err);
       }
     });
+  }
+
+  mostrarDetalles(id:number) {
+    this.router.navigate(['/detail-product', id]);
   }
 
 }
