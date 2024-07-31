@@ -22,6 +22,8 @@
                         <button type="button" class="btn btn-danger" (click)="deleteProduct(product.productId, product)">Eliminar</button>
                         <button type="button" class="btn btn-warning" (click)="desiredProduct(product.productId, product)">Deseado</button>
                         <button type="button" class="btn btn-primary" (click)="mostrarDetalles(product.productId)">Detalle</button>
+                        <button *ngIf="product.price > promedioPrecio" type="button" class="btn btn-success">Agregar al carrito</button>
+
                     </td>
                   </tr>
               }

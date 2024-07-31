@@ -30,4 +30,8 @@ export class ProductsService {
     return this.http.put<ProductModel>(`${this.baseUrl}desiredProduct/${id}`, product);
   }
 
+  averangePrice(): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}getAverangePrice`);
+  }
+
 }
