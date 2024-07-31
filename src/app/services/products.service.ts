@@ -14,4 +14,8 @@ export class ProductsService {
     return this.http.get<ProductModel[]>(`${this.baseUrl}findAll`);
   }
 
+  getAllDesiredProducts(): Observable<ProductModel[]> {
+    return this.http.get<ProductModel[]>(`${this.baseUrl}findAllDesired`);
+  }
+
 }

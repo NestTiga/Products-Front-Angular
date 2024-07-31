@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ProductModel } from '../../models/product.model';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-desired-products',
@@ -7,6 +9,24 @@ import { Component } from '@angular/core';
   templateUrl: './desired-products.component.html',
   styleUrl: './desired-products.component.css'
 })
-export class DesiredProductsComponent {
+export class DesiredProductsComponent implements OnInit {
+
+  public productList: ProductModel[] = [];
+  private productService= inject(ProductsService);
+
+  ngOnInit(): void {
+    this.getAllDesiredProducts();
+  }
+
+  getAllDesiredProducts() {
+    this.productService.getAllDesiredProducts().subscribe({
+      next: (products:ProductModel[]) => {
+        this.productList = products;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
 
 }
