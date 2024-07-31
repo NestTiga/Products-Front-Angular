@@ -19,8 +19,8 @@
                     <td>{{product.name}}</td>
                     <td>{{product.price}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Eliminar</button>
-                        <button type="button" class="btn btn-warning">Favorito</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteProduct(product.productId, product)">Eliminar</button>
+                        <button type="button" class="btn btn-warning" (click)="desiredProduct(product.productId, product)">Deseado</button>
                     </td>
                   </tr>
               }

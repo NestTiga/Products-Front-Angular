@@ -29,4 +29,16 @@ export class DesiredProductsComponent implements OnInit {
     });
   }
 
+  changeDesiredProduct(id:number, product:ProductModel) {
+    product.desired = false;
+    this.productService.changeDesiredProduct(id, product).subscribe({
+      next: (product:ProductModel) => {
+        this.getAllDesiredProducts();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
 }

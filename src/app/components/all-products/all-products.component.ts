@@ -29,4 +29,30 @@ export class AllProductsComponent implements OnInit {
     });
   }
 
+  deleteProduct(id:number, product:ProductModel) {
+    product.active = false;
+    this.productService.deleteProduct(id, product).subscribe({
+      next: (res) => {
+        if (res){
+          this.getAllProducts();
+        }
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
+  desiredProduct(id:number, product:ProductModel) {
+    product.desired = true;
+    this.productService.changeDesiredProduct(id, product).subscribe({
+      next: (product:ProductModel) => {
+        this.getAllProducts();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
 }
